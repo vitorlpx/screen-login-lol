@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lexend Deca', sans-serif; 
+}
+
+:root {
+    --white: #fff;
+    --whitesmoke: #f9f9f9;
+    --light-grey: #ececec;
+    --grey: #C4C4C4;
+    --mediumgrey: #A7A7A7;
+    --deep-grey: #343434;
+    --black: #000000;
+    --blue: #1B77F3;
+    --red: #CF3C3F;
+/* -- serve para a criação da variável, para uma possível reutilização em outro momento.*/
+/*Essa tag serve para a reutilização de elementos.*/
+/*Pseu do classe, quase a mesma coisa da tag "html", ela é mais especifica.*/
+/*Isso serve para criar string no css, para não precisar repetir, você deixa string que vai usar para só colocar em partes do código. --var(nome da string). */
+}
+
+main {
+    display: flex; /*Como está englobando as duas sections, login e wallpaper, para o wallpaper foi necessário colocar display flex para a imagem ficar do lado.*/
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    min-height: 100vh;
+    justify-content: space-between; /*Serve para separar as duas partes, a parte dos inputs, check box e ícones com a parte do botão de login e os links.*/
+    padding: clamp(35px, 8%, 70px ); /*Parametros do clamp são: min(não fica menor que esse.) preferencia(sempre usar esse valor.) max(não ultrapassa esse valor.) */
+    /*É um tipo de responsivel para o site. */
+}
+
+.wrapper {
+    width: 100%; /*Serve para ocupar a tela toda.*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login_logo {
+    width: 130px;
+    margin-bottom: 80px; /*Espaçamento do ícone de login oara os elementos debaixo. */
+}
+
+.login_title {
+    color: var(--deep-grey);
+    font-size: 1.5em;
+    margin-bottom: 30px; /*Espaço do input para o titulo*/
+}
+
+.login_label {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.input {
+    width: 100%; /*Ocupa todo o espaço disponível. */
+    background-color: var(--light-grey);
+    border: 2px solid rgba(0, 0, 0, 0); /*R(red)G(green)B(blue)A(alfa), na letra A significa a transparência. */
+    border-radius: 5px;
+    outline: none; /*Serve para quando o input for selecionado, não conter nenhuma borda.*/
+    font-size: 0.9em;
+    padding: 25px 10px 10px; /*Foi colocado um padding de 25px no topo para ter espaço da animação ao clicar o input.*/
+    font-weight: 600;
+    color: var(--deep-grey); /*Cor da fonte do input*/
+}
+
+.login_label span {
+    position: absolute; /*Serviu para colocar o span(escrita) dentro do input(caixa do texto). */
+    font-size: 0.8em;
+    font-weight: 700;
+    text-transform: uppercase; /*Sempre deixar o texto em maiúsculo.*/
+    color: var(--mediumgrey);
+    margin: 20px;
+    cursor: text; /*Quando o mouse passar em cima do span (nome de usuario) vai ficar no tipo para escrever*/
+    transition: all 180ms ease;
+}
+
+.input:focus { /*Focus é quando você clicar no input, quando estiver selecionado a cor dele vai mudar.*/
+    background-color: var(--whitesmoke);
+    border: 2px solid var(--mediumgrey);
+}
+
+.login_label .span-active {
+    font-size: 0.7em;
+    margin: 8px 10px;
+}
+
+.login_icons {
+    display: flex; /*Serve para deixar todos os icones do mesmo tamanho.*/
+    gap: 10px; /*Serve para dar o minimo de espaço entre os icones.*/
+    width: 100%;
+    margin-top: 20px;   
+}
+
+.login_icons img {
+    width: 20px;
+}
+
+.icons_button {
+    width: 33.33%; /*Os 3 botões vão ocupar o tamanho certo da tela, pra isso tem que divir certo, por isso 33.33%.*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+}
+
+.login_icons .icons_button:nth-child(1) { /*Para modificar os botões um por um, tem que criar essa classe nth-child e definir a ordem, como o facebook é o primeiro, então é (1). */
+    background-color: var(--blue);
+}
+
+.login_icons .icons_button:nth-child(2) { 
+    background-color: var(--light-grey);
+}
+
+.login_icons .icons_button:nth-child(3) { 
+    background-color: var(--black);
+}
+
+.login_label-checkbox {
+    width: 100%;
+    margin: 15px 0 50px; /*15px é a margin do topo, 0 é a margin lateral, e 50px é a margin debaixo.*/
+    font-size: 0.9em;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+.input--checkbox {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: var(--light-grey);
+    margin-right: 8px;
+    border-radius: 3px;
+    cursor: pointer; /*Serve para quando passar em cima do icone, mudar o icone do mouse.*/
+}
+
+.input--checkbox:checked { /*Quando o input for marcado, muda a cor para vermelho.*/
+    background-color: var(--red);
+}
+
+.input--checkbox:checked:after { /*Esse :checked significa pra quando o elemento for marcado, enquanto ele for marcado.*/ /*É um tipo de elemento "falso". */
+    content: "" ; /*Conteúdo dentro do checkbox, se escrever qualquer coisa, quando você clicar vai aparecer o que tá escrito.*/
+    display: block;
+    width: 5px;
+    height: 10px;
+    border: 3px solid white;
+    border-width: 0 3px 3px 0; /*Esses 4 valores são: topo, direita, baixo, esquerda.*/
+    margin: 100px;
+    transform: rotate(45deg); /*Deg significa grau. Aqui no caso é 45°. */
+    margin: 2px 6px;
+}
+
+.login_button {
+    width: 60px;
+    height: 60px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--red);
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 60px;
+}
+
+.login_button svg {
+    fill: white; /*Fill significa o preenchimento. Aqui no caso é o preenchimento do ícone.*/
+}
+
+.login_button:disabled {
+    cursor: auto; /*Cursor normal do mouse.*/
+    background-color: white;
+    border: 2px solid var(--light-grey);
+}
+
+.login_button:disabled svg { /*:disabled serve para quando o botão estiver desabilitado. Um tipo de "condição".*/
+    fill: var(--mediumgrey)
+}
+
+.login_link {
+    font-size: 0.8em;
+    text-decoration: none;
+    color: var(--mediumgrey);
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    font-weight: 700; /*Negrito.*/
+}
+
+.wallpaper {
+    width: 100%;
+    background-image: url(img/yasuoWallpaper.gif);
+    background-size: cover; /*Serve para o background cobrir todo o espaço disponível, e não vai deformar a imagem.*/
+    background-position: center; /*Centralizar a imagem do background.*/ 
+    flex: 1; /*Aqui diz para imagem ocupar 100% da tela, mas é 100% do espaço disponível para o background.*/
+}
